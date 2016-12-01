@@ -1,26 +1,22 @@
 "use strict";
 
-app.controller ('TodoCtrl', function($scope){
-  $scope.welcome = "Welcome";
+app.controller ('TodoCtrl', function($scope, $location){
+  $scope.welcome = "Let's have some fun!";
   $scope.showListView = true;
   $scope.newTask= {};
 
   $scope.newItem = function(){
     console.log("you cliked on the new item" );
-    $scope.showListView = false;
+    //$scope.showListView = false;
+    $location.url("/items/new");
   };
 
   $scope.allItem = function(){
    console.log("you clicked on all items" );
-   $scope.showListView = true;
+   //$scope.showListView = true;
+   $location.url("/items/list");
   };
-  $scope.addNewItem = function(){
-  console.log("you clicked on the new Item", $scope.newTask );
-  $scope.newTask.isCompleted = false;
-  $scope.newTask.id = $scope.items.length;
-  $scope.items.push($scope.newTask);
-  $scope.newTask ={};
-  };
+  
 
   $scope.items = [
    {
