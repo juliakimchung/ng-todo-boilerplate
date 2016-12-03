@@ -1,0 +1,14 @@
+<h1>Todo List</h1>
+
+<!-- TODO: Repeat over our todo list items and setup filtering by search term. Easy peasy -->
+<div ng-repeat="items in items | filter: searchText.search">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="col-xs-1"><input type="checkbox" name=""/></div>
+      <div class="col-xs-7"><a ng-href="#/items/{{items.id}}">{{items.task}}</a></div>
+      <div class="col-xs-2">{{items.dueDate}}</div>
+      <div class="col-xs-1">{{items.assignedTo}}</div>
+      <!-- <div class="col-xs-1"><button class="btn btn-danger" ng-click="remove(itemId)">X</button></div> -->
+    </div>
+  </div>
+</div>
