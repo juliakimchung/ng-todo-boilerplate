@@ -1,5 +1,5 @@
 "use strict";
-app.controller ('itemNewCtrl', function($scope, ItemStorage, $location){
+app.controller ('itemNewCtrl', function($scope, ItemFactory, $location){
   $scope.newTask= {};
   $scope.title = "Add a new task";
   $scope.btnText = "Save new task";
@@ -19,7 +19,7 @@ app.controller ('itemNewCtrl', function($scope, ItemStorage, $location){
    
    
    console.log("you added a new item", $scope.newTask );
-   ItemStorage.postNewItem($scope.newTask)
+   ItemFactory.postNewItem($scope.newTask)
    .then((response) => {
    	$location.url("/item/list");
    	$scope.$apply();

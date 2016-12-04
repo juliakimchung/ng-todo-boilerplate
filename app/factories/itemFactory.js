@@ -1,5 +1,5 @@
 "use strict";
-app.factory("ItemStorage", ($http, FBCreds) => {
+app.factory("ItemFactory", ($http, FBCreds) => {
 
 	let getItemList = () => {
 	 let items = [];
@@ -8,6 +8,7 @@ app.factory("ItemStorage", ($http, FBCreds) => {
 				$http.get(`${FBCreds.URL}/items.json`)
 				.success((itemObject)=>{
 					let itemColletction = itemObject;
+					console.log("itemColletction",itemColletction );
 					Object.keys(itemColletction).forEach((key) =>{
 						itemColletction[key].id = key;
 						items.push(itemColletction[key]);
@@ -31,12 +32,22 @@ let getSingleItem = (itemId)=> {
 			reject(error);
 		});
 	});
-// 	$scope.remove = function(item) { 
-//   var index = $scope.items.indexOf(`${iemId}.json`);
-//   $scope.items.splice(index, 1);     
-// }
+
 };
 
+let deleteItem = (itemId)=> {
+	return new Promise((resolve, reject) =>{
+		$http.delete(`${FBCreds.URL}/items/${itemId}.json`)
+		.success((itemObject) => {
+			resolve(itemObject);
+			console.log("itemObject after deleteSingleItem",itemObject );
+		})
+		.error((error) => {
+			reject(error);
+		});
+	});
+
+};
 
 
 	let postNewItem = (newTask) => {
@@ -50,9 +61,22 @@ let getSingleItem = (itemId)=> {
 			});
 		});
 	};
+
+let updateItem = (itemId, editedItem) => {
+	return new Promise( (resolve, reject) => {
+		$http.patch(`${FBCreds.URL}items/${itemId}.json`, JSON.stringify(editedItem))
+		.success( (itemObject) => {
+		resolve(itemObject);
+		})
+		.error( (error) => {
+		reject(error);
+		});
+	});
+};
+
 	//	items.push(newTask);
 
-	return {getItemList, postNewItem, getSingleItem};
+	return {getItemList, postNewItem, getSingleItem, deleteItem, updateItem};
 
 
 });
