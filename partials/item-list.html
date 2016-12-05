@@ -11,6 +11,7 @@
   </div>
 </div>  --> 
 <!-- TODO: Repeat over our todo list items and setup filtering by search term. Easy peasy -->
+<h1>Todo List</h1>
 <div ng-repeat="items in items | filter: searchText.search">
   <div class="panel panel-default">
     <div class="panel-body">
@@ -18,7 +19,10 @@
       <div class="col-xs-7"><a ng-href="#/items/{{items.id}}">{{items.task}}</a></div>
       <div class="col-xs-2">{{items.dueDate}}</div>
       <div class="col-xs-1">{{items.assignedTo}}</div>
-      <div class="col-xs-1"><button class="btn btn-danger" ng-click="remove(itemId)">X</button></div>
+      <div class="col-xs-1"><button class="btn btn-danger" plasceholder="delete" ng-click="remove(items.id)">Delete</button></div>
+      <div class="col-xs-1"><button class="btn btn-danger" placeholder="edit" ng-click="runItemEdit(items.id)">Edit</button></div>
+
+      <!-- items.id means something in this partial- this particular id -->
     </div>
   </div>
 </div>

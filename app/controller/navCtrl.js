@@ -1,3 +1,4 @@
+
 "use strict";
 app.controller("navCtrl", function($scope, searchTermData){
   //$scope.navItems=[{name: "Logout"}, {name: "All Items"}, {name: "Add Items"}];
@@ -20,6 +21,7 @@ app.controller("navCtrl", function($scope, searchTermData){
   	name: "Add Items",
   	url: "#/items/new"
   }
+  
 ];
 
 });

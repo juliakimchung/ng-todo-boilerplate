@@ -7,9 +7,9 @@
   </head>
 <!-- TODO: Initialize our app -->
   <body ng-app="TodoApp">
-    <div ng-controller="TopCtrl">
  
-    <div ng-include="partials/navbar.html">  <!--  This is ng-include rather than ng-view because navbar is mostly consistent on page, unlike ng-view, which allows routing. Each view looks like a separate section of webpage or separate webpage -->
+    <div ng-include="'partials/navbar.html'">
+    <!-- with the single quote. noe the partials become a path instead of an expression  --> <!--  This is ng-include rather than ng-view because navbar is mostly consistent on page, unlike ng-view, which allows routing. Each view looks like a separate section of webpage or separate webpage -->
     </div> 
      <!--  TODO: Add a controller for our todo list
        -->
@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
- </div>
+ <!-- </div> -->
   <!-- TODO: Add a nav controller -->
     <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js">
@@ -37,16 +37,14 @@
 
     <script type="text/javascript" src="app/values/fb-creds.js"></script>
 
-    <script type="text/javascript" src="app/controller/LoginCtrl.js"></script>
     <script type="text/javascript" src="app/controller/navCtrl.js"></script>
 
-    <script type="text/javascript" src="app/controller/TopCtrl.js"></script>
-    <script type="text/javascript" src="app/controller/TodoCtrl.js"></script>
     <script type="text/javascript" src="app/controller/itemViewCtrl.js"></script>
     <script type="text/javascript" src="app/controller/itemEditCtrl.js"></script>
 
     <script type="text/javascript" src="app/controller/itemNewCtrl.js"></script>
     <script type="text/javascript" src="app/controller/itemListCtrl.js"></script>
+    <script type="text/javascript" src="app/controller/LoginCtrl.js"></script>
    
 </body>
 </html>

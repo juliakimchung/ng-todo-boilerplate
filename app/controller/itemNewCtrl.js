@@ -1,6 +1,6 @@
 "use strict";
-app.controller ('itemNewCtrl', function($scope, ItemFactory, $location){
-  $scope.newTask= {};
+app.controller ('itemNewCtrl', function($scope, ItemFactory, $location, AuthFactory){
+  
   $scope.title = "Add a new task";
   $scope.btnText = "Save new task";
   $scope.newTask = {
@@ -11,17 +11,15 @@ app.controller ('itemNewCtrl', function($scope, ItemFactory, $location){
   	task: "",
   	urgency: "low",
   	isCompleted: false,
-  	//uid: go get the user
+  	uid: ""
   };
    
    $scope.addNewItem = function(){
    console.log("you clicked on the new Item", $scope.newTask );
    
-   
-   console.log("you added a new item", $scope.newTask );
    ItemFactory.postNewItem($scope.newTask)
    .then((response) => {
-   	$location.url("/item/list");
+   	$location.url("/items/list");
    	$scope.$apply();
    });
    };

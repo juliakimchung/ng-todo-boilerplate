@@ -41,6 +41,11 @@ let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
 		controller: 'itemViewCtrl',
 		resolve: {isAuth}
 	})
+	.when('/items/:itemId/edit', {
+		templateUrl: 'partials/item-edit.html',
+		controller: 'itemEditCtrl',
+		resolve: {isAuth}
+	})
 	.otherwise('/items/list');
 });
 

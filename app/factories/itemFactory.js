@@ -1,17 +1,19 @@
 "use strict";
 app.factory("ItemFactory", ($http, FBCreds) => {
 
-	let getItemList = () => {
 	 let items = [];
+	let getItemList = () => {
 
 		return new Promise((resolve, reject) =>{
 				$http.get(`${FBCreds.URL}/items.json`)
 				.success((itemObject)=>{
 					let itemColletction = itemObject;
+					let tempArr = [];
 					console.log("itemColletction",itemColletction );
 					Object.keys(itemColletction).forEach((key) =>{
 						itemColletction[key].id = key;
-						items.push(itemColletction[key]);
+						tempArr.push(itemColletction[key]);
+						items = tempArr;
 					});
 					resolve(items);
 				})
@@ -64,7 +66,7 @@ let deleteItem = (itemId)=> {
 
 let updateItem = (itemId, editedItem) => {
 	return new Promise( (resolve, reject) => {
-		$http.patch(`${FBCreds.URL}items/${itemId}.json`, JSON.stringify(editedItem))
+		$http.patch(`${FBCreds.URL}items/${itemId}.json`,angular.toJson(editedItem))
 		.success( (itemObject) => {
 		resolve(itemObject);
 		})
