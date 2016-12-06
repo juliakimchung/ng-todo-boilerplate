@@ -1,4 +1,4 @@
-<h1>{{title}}</h1>
+<h1>Edit the task</h1>
 	<form>
   <div class="form-group">
     <label>Task Description</label>
@@ -25,5 +25,5 @@
     <label>Dependencies</label>
     <input type="text" class="form-control" placeholder="brush chipper, monkey chow, the one ring" ng-model="editedTask.dependencies">
   </div>
-  <button class="btn btn-default" ng-click="runItemEdit(editedTask)">{{btnText}}</button>
+  <button class="btn btn-default" ng-click="runItemEdit()">Submit</button>
 </form>

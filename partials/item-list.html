@@ -19,9 +19,10 @@
       <div class="col-xs-7"><a ng-href="#/items/{{items.id}}">{{items.task}}</a></div>
       <div class="col-xs-2">{{items.dueDate}}</div>
       <div class="col-xs-1">{{items.assignedTo}}</div>
-      <div class="col-xs-1"><button class="btn btn-danger" plasceholder="delete" ng-click="remove(items.id)">Delete</button></div>
-      <div class="col-xs-1"><button class="btn btn-danger" placeholder="edit" ng-click="runItemEdit(items.id)">Edit</button></div>
+      <div class="col-xs-1">
 
+      <button class="btn btn-danger" plasceholder="delete" ng-click="remove(items.id)">Delete</button></div>
+      <button class="btn btn-info"> <a ng-href="#/edit/{{items.id}}">Edit</a></button>
       <!-- items.id means something in this partial- this particular id -->
     </div>
   </div>

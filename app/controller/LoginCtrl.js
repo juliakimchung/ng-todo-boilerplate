@@ -1,7 +1,6 @@
 "use strict";
 app.controller("LoginCtrl", function($scope, AuthFactory, $window){
 	AuthFactory.logoutUser();
-	
 	$scope.account ={
 		email:"",
 

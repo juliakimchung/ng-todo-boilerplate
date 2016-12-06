@@ -41,7 +41,7 @@ let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
 		controller: 'itemViewCtrl',
 		resolve: {isAuth}
 	})
-	.when('/items/:itemId/edit', {
+	.when('/edit/:itemId', {
 		templateUrl: 'partials/item-edit.html',
 		controller: 'itemEditCtrl',
 		resolve: {isAuth}
